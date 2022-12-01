@@ -5,6 +5,13 @@ const userRouter = require("./routes/userRoutes");
 
 app.use(express.json());
 
+//simple middleware
+
+app.use((req, res, next)=> {
+    console.log("HTTP METHOD - " +req.method + "-url " + req.url);
+    next();
+})
+
 const mongoose = require("mongoose");
 mongoose
     .connect(
